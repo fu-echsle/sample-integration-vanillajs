@@ -30,7 +30,7 @@
       p-text,
       p-text-field-wrapper,
       p-text-list,
-      p-text-list-item,
+      p-text-list,
       p-textarea-wrapper {
         visibility: hidden;
       }
@@ -47,37 +47,37 @@
       }
     </style>
     <!-- prettier-ignore -->
-    <script src="node_modules/@porsche-design-system/components-js/index.js"></script>
-    <!-- prettier-ignore -->
-    <script type="module" src="node_modules/@porschehn/navigation/dist/porsche-navigation/porsche-navigation.esm.js"></script>
-    <!-- prettier-ignore -->
-    <script nomodule src="node_modules/@porschehn/navigation/dist/porsche-navigation/porsche-navigation.js"></script>
-    <!-- prettier-ignore -->
     <link rel="stylesheet" href="https://cdn.ui.porsche.com/porsche-design-system/style/font-face.min.677d41d9905a04aadcb253f71e5f71e9.css"/>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="text/javascript">
-      porscheDesignSystem.load();
-    </script>
 
     <div class="pageLayout">
-      <p-grid>
-        <p-grid-item size="12">
-          <p-headline variant="headline-2" align="center"
-            >Example usage of the Porsche-Design-System VanillaJS</p-headline
+      <div>
+        <div size="12">
+          <my-prefix-p-headline variant="headline-2" align="center"
+            >Example usage of the Porsche-Design-System VanillaJS</my-prefix-p-headline
           >
-        </p-grid-item>
-        <p-grid-item size="12">
-          <p-divider class="divider"></p-divider>
-        </p-grid-item>
-        <p-grid-item id="nav" size="12"> </p-grid-item>
-        <p-grid-item size="12">
-          <p-divider class="divider"></p-divider>
-        </p-grid-item>
-      </p-grid>
+        </div>
+        <div size="12">
+          <my-prefix-p-divider class="divider"></my-prefix-p-divider>
+        </div>
+        <div id="nav" size="12"> </div>
+        <div size="12">
+          <my-prefix-p-divider class="divider"></my-prefix-p-divider>
+        </div>
+      </div>
       <div id="app"></div>
     </div>
+
+    <!-- prettier-ignore -->
+    <script src="node_modules/@porsche-design-system/components-js/index.js"></script>
+    <!-- prettier-ignore -->
+    <script type="module" src="node_modules/@porschehn/navigation/dist/porsche-navigation/porsche-navigation.esm.js"></script>
+
+    <script type="text/javascript">
+      porscheDesignSystem.load({prefix: "my-prefix"});
+    </script>
 
     <script type="text/javascript">
       if (!window.location.href.includes('#')) {
@@ -94,7 +94,7 @@
           name: 'Performance',
         },
       ].forEach((item) => {
-        const element = document.createElement('p-link-pure');
+        const element = document.createElement('my-prefix-p-link-pure');
         element.setAttribute('href', item.path);
         element.innerHTML = item.name;
         nav.appendChild(element);
